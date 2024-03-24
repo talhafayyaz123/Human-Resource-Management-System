@@ -1,0 +1,8 @@
+{
+    "Sales/Presales": "Sales/Presales",
+    "Person/Reference": "Person/Reference",
+    "database": "Database System",
+    "development": "Development System",
+    "test": "Test System",
+    "productive": "Productive System"
+}

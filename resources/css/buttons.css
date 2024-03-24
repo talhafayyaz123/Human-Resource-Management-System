@@ -1,0 +1,73 @@
+.btn-indigo {
+    @apply px-6 py-3 rounded docsHeroColorBlue text-white text-sm leading-4 font-bold whitespace-nowrap;
+}
+
+.btn-green {
+    @apply px-6 py-3 rounded bg-green-500 text-white text-sm leading-4 font-bold whitespace-nowrap hover:bg-green-700 focus:bg-green-700;
+}
+
+.btn-red {
+    @apply px-6 py-3 rounded;
+    background-color: rgb(220 38 38) !important;
+    color: white;
+}
+
+.btn-secondary {
+    @apply px-6 py-3 rounded;
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0);
+}
+
+.btn-spinner,
+.btn-spinner:after {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.btn-spinner {
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 0.2em solid white;
+    border-right: 0.2em solid white;
+    border-bottom: 0.2em solid white;
+    border-left: 0.2em solid transparent;
+    transform: translateZ(0);
+    animation: spinning 1s infinite linear;
+}
+
+.round-spinner,
+.round-spinner:after {
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+}
+.round-spinner {
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 0.2em solid rgb(000, 25, 25);
+    border-right: 0.2em solid rgb(000, 25, 25);
+    border-bottom: 0.2em solid rgb(000, 25, 25);
+    border-left: 0.2em solid transparent;
+    transform: translateZ(0);
+    animation: spinning 1s infinite linear;
+}
+@keyframes spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinning {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

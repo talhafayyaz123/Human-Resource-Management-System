@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Projekteinrichtung",
+        "isDefaultOnOffers": 1
+    },
+    {
+        "name": "Customizing",
+        "isDefaultOnOffers": 1
+    },
+    {
+        "name": "Schulung",
+        "isDefaultOnOffers": 1
+    },
+    {
+        "name": "Test & Abnhame",
+        "isDefaultOnOffers": 1
+    },
+    {
+        "name": "Projektmanagement",
+        "isDefaultOnOffers": 1
+    },
+    {
+        "name": "Dienstleistungen ELO",
+        "isDefaultOnOffers": 0
+    },
+    {
+        "name": "Dienstleistungen Hosting",
+        "isDefaultOnOffers": 0
+    },
+    {
+        "name": "Application Management Service",
+        "isDefaultOnOffers": 0
+    }
+]

@@ -1,0 +1,311 @@
+.main-layout {
+    display: flex;
+
+    .content-page {
+        margin-left: 260px;
+        padding: 65px 10px 15px 15px;
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+}
+
+.dark-mode {
+    cursor: pointer;
+
+    svg {
+        stroke: #fff;
+        width: 18px;
+    }
+}
+
+.global-setting {
+    position: relative;
+    z-index: 999;
+
+    .close-overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        background: #000;
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;
+    }
+
+    .close-setting {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: -15px;
+        cursor: pointer;
+    }
+
+    .main-setting {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s all ease-in-out;
+    }
+
+    .settings {
+        position: fixed;
+        right: -900px;
+        top: 0;
+        width: 850px;
+        height: 100vh;
+        background: #2957a4;
+        padding: 20px;
+        visibility: hidden;
+        opacity: 0;
+
+        .setting-header {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .setting-border {
+            width: 100%;
+            height: 1px;
+            border-radius: 100px;
+            background: linear-gradient(
+                270deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                #fff 50.52%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+        }
+
+        .search-setting {
+            margin-left: 10px;
+            width: 100%;
+
+            input {
+                border: 1px solid #747a80;
+                border-radius: 6px;
+                color: #747a80;
+                font-size: 14px;
+                height: 42px;
+                outline: none;
+                padding: 10px 12px;
+                width: 100%;
+
+                &::placeholder {
+                    opacity: 1 !important;
+                }
+            }
+        }
+
+        .setting-expand {
+            padding: 0 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .switch-label {
+                color: #fff;
+            }
+        }
+
+        .setting-accordians {
+            margin-top: 20px;
+            position: relative;
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                .col-md-3{
+                    width: 25%;
+                    padding: 0 7px;
+                }
+
+                .col-md-4 {
+                    width: 33.33%;
+                    padding: 0 7px;
+                }
+                
+                .col-md-6{
+                    width: 50%;
+                    padding: 0 7px;
+                }
+                .col-md-12{
+                    width: 100%;
+                    padding: 0 7px;
+                }
+            }
+
+            .union-img {
+                position: absolute;
+                top: 50px;
+                width: 50%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+            }
+
+            .accordion {
+                overflow-y: scroll;
+                padding-right: 20px;
+                height: calc(99vh - 130px);
+                position: relative;
+
+                &::-webkit-scrollbar-track {
+                    border-radius: 10px;
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                &::-webkit-scrollbar {
+                    width: 12px;
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    background-color: #f59630;
+                }
+
+                .accordion-item {
+                    position: relative;
+                    z-index: 1;
+                    border: none;
+                    border-radius: 6px;
+                    background: rgba(255, 255, 255, 0.15);
+                    overflow: hidden;
+                    margin-bottom: 20px;
+
+                    .accordion-header {
+                        .accordion-button {
+                            padding: 8px 18px;
+                            background: #f59630;
+                            border: none;
+                            box-shadow: none;
+                            color: #fff;
+                            font-size: 14px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            cursor: pointer;
+
+                            .icon {
+                                margin-right: 10px;
+                            }
+
+                            img {
+                                margin-right: 10px;
+                            }
+
+                            &::after {
+                                display: none;
+                            }
+
+                            .arrow {
+                                rotate: 180deg;
+                                transition: 0.3s all ease-in-out;
+                            }
+
+                            .down-icon {
+                                svg {
+                                    width: 20px;
+                                    height: 20px;
+                                    fill: #fff;
+                                }
+                            }
+                        }
+
+                        .accordion-button.expand {
+                            .arrow {
+                                rotate: 180deg;
+                            }
+                        }
+
+                        .accordion-button.collapsed {
+                            .arrow {
+                                rotate: 0deg;
+                            }
+                        }
+                    }
+
+                    .accordion-body {
+                        padding: 0;
+
+                        .listing {
+                            margin: 0;
+                            padding: 0;
+
+                            li {
+                                a {
+                                    padding: 12px 16px;
+                                    color: #fff;
+                                    display: flex;
+                                    align-items: center;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: normal;
+
+                                    i {
+                                        font-size: 10px;
+                                        margin-right: 16px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.global-setting.show {
+    .settings {
+        visibility: visible;
+        opacity: 1;
+        right: 0px;
+    }
+
+    .main-setting {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mention-dropdown {
+    position: absolute;
+    background-color: #f9f9f9;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.mention-dropdown div {
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.mention-dropdown div:hover {
+    background-color: #ddd;
+}
+.full-layout{
+    .main-layout .content-page{
+        margin: 0;
+        padding: 55px 0px 0px 0px;
+    }
+    .top-navbar{
+        display: none;
+    }
+    .left-sidebar{
+        display: none;
+    }
+}

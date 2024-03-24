@@ -1,0 +1,202 @@
+.table-responsive {
+    overflow-x: auto;
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid rgba(208, 213, 221, 0.70);
+
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $light-gray;
+        border-radius: 6px;
+    }
+
+    .doc-table {
+        width: 100%;
+    }
+
+    table {
+        input {
+            height: 36px !important;
+            font-size: 14px;
+        }
+        select{
+            height: 30px !important;
+            font-size: 14px;
+        }
+
+        tr {
+            th {
+                background: $light-gray !important;
+                color: $black !important;
+                padding: 14px 20px !important;
+                height: 50px;
+                color: #000;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 15.32px;
+                letter-spacing: 0.6px;
+                white-space: nowrap;
+                text-transform: capitalize;
+
+                button {
+                    i {
+                        color: #fff !important;
+                    }
+                }
+            }
+        }
+
+        tr {
+            td {
+                padding: 14px 20px !important;
+                border-top: 1px solid rgba(208, 213, 221, 0.70);
+                border-bottom: 1px solid rgba(208, 213, 221, 0.70);
+                color: #000 !important;
+                font-size: 14px;
+                font-weight: 500;
+
+                .text-hover {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    text-align: left;
+                    transition: 0.3s all ease-in-out;
+
+                    &:hover {
+                        white-space: wrap;
+                        text-overflow: inherit;
+                    }
+                }
+            }
+
+            .tags {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                row-gap: 2;
+
+                li {
+                    margin-right: 5px;
+
+                    span {
+                        border-radius: 2px;
+                        background: #29A43D;
+                        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 15.32px;
+                        letter-spacing: 0.6px;
+                        display: flex;
+                        padding: 2px 10px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+
+        tr.status-active {
+            position: relative;
+
+            &:hover {
+                td {
+                    border-top: 1px solid #00B25D;
+                    border-bottom: 1px solid #00B25D;
+                    background: linear-gradient(0deg, rgba(245, 150, 48, 0.15) 0%, rgba(245, 150, 48, 0.15) 100%), rgba(255, 255, 255, 0.50);
+
+                    &:first-child {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 10px;
+                            height: 100%;
+                            background: green;
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+        tr.status-inactive {
+            position: relative;
+
+            &:hover {
+                td {
+                    &:first-child {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 10px;
+                            height: 100%;
+                            background: orange;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+.modal-table {
+    table {
+        input {
+            height: 36px !important;
+        }
+
+        tr {
+            th {
+                padding: 10px 20px !important;
+                height: 40px;
+                font-size: 12px;
+            }
+        }
+
+        tr {
+            td {
+                padding: 10px 20px !important;
+                font-size: 12px;
+            }
+        }
+
+    }
+
+}
+
+.add-additional-btn {
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    margin-left: 140px;
+}
+
+.tag-number {
+    background: rgb(229 231 235 / 1);
+    max-width: inherit !important;
+    width: 90px;
+    padding: 10px !important;
+    text-align: center;
+}
+
+.table-responsive.roles-table {
+    overflow: inherit;
+}

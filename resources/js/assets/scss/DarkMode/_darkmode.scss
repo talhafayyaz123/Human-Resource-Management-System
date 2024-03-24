@@ -1,0 +1,654 @@
+.is-dark-mode {
+
+  background: $dark-color-1;
+
+  .main-sidebar {
+    background-color: $dark-color-2;
+
+    .upper-menu {
+
+      .menu {
+
+        .menu-item {
+
+          .menu-link {
+            background: $dark-color-1;
+
+            .icon {
+              svg {
+                path {
+                  stroke: $dark-color-3;
+                }
+              }
+            }
+
+            span {
+              color: $dark-color-3;
+            }
+
+            .tasks {
+              background: $dark-color-2;
+            }
+
+            &:hover {
+              background: $dark-color-4;
+
+              .icon {
+                svg {
+                  path {
+                    stroke: #F59630;
+                  }
+                }
+              }
+
+              span {
+                color: $dark-color-3;
+              }
+
+              .tasks {
+                color: #fff;
+                background: #F59630;
+              }
+            }
+          }
+
+          .menu-link.router-link-active {
+            background: $dark-color-4;
+
+            .icon {
+              svg {
+                path {
+                  stroke: #F59630;
+                }
+              }
+            }
+
+            span {
+              color: $dark-color-3;
+            }
+
+            .tasks {
+              color: #fff;
+              background: #F59630;
+            }
+          }
+
+        }
+      }
+    }
+
+    .divider {
+      background: $dark-color-3;
+    }
+
+    .upper-menu-dropdown-btn {
+      svg {
+        path {
+          fill: $dark-color-3;
+        }
+      }
+    }
+
+    .my-task-sidebar-menu {
+      .menu {
+        .menu-item {
+          .menu-link {
+
+            .icon {
+              margin-right: 10px;
+            }
+
+            span {
+              color: $dark-color-3;
+            }
+
+            &:hover {
+              background: #FFF;
+
+              .icon {
+                svg {
+                  path {
+                    stroke: #F59630;
+                  }
+                }
+              }
+
+              .action-btn {
+                display: block;
+
+                svg {
+                  path {
+                    stroke: #F59630;
+                  }
+                }
+
+                .setting {
+                  svg {
+                    path {
+                      fill: #F59630;
+                      stroke: transparent;
+                    }
+                  }
+                }
+
+              }
+
+              span {
+                color: #38414A;
+              }
+            }
+          }
+
+          .menu-link.add-worksapce {
+            background: transparent;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+              background: transparent !important;
+
+              span {
+                color: #FFF !important;
+              }
+            }
+
+            span {
+              text-transform: uppercase;
+            }
+          }
+
+          .menu-link.router-link-active {
+            background: #FFF;
+
+            .icon {
+              svg {
+                path {
+                  stroke: #F59630;
+                }
+              }
+            }
+
+            .action-btn {
+              display: block;
+
+              svg {
+                path {
+                  stroke: #F59630;
+                }
+              }
+
+              .setting {
+                svg {
+                  path {
+                    fill: #F59630;
+                    stroke: transparent;
+                  }
+                }
+              }
+
+            }
+
+            span {
+              color: #38414A;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    .sidebar-menu {
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $dark-color-1;
+        outline: 1px solid $dark-color-3;
+        border-radius: 5px;
+      }
+
+      ul.side-menu {
+        li.menu-title {
+          color: $dark-color-3;
+        }
+
+        li.menu-item {
+
+          a.menu-link {
+            color: $dark-color-3;
+
+            svg {
+              path {
+                stroke: $dark-color-3;
+              }
+            }
+
+            &:hover {
+              background: $dark-color-4;
+
+              svg {
+                path {
+                  stroke: #F59630;
+                }
+              }
+            }
+          }
+
+          a.router-link-active {
+            background: $dark-color-4;
+            color: $dark-color-3;
+
+            svg {
+              path {
+                stroke: #F59630;
+              }
+            }
+          }
+
+          ul {
+
+            li.menuitem-active {
+              a.router-link-active {
+                background: $light-gray;
+                color: $dark-color-3;
+                border-radius: 0;
+
+                svg {
+                  path {
+                    stroke: #F59630;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        li.dropdown {
+          background: $dark-color-1;
+        }
+
+      }
+    }
+
+    .bottom_nav {
+      background: $dark-color-2;
+
+      a {
+        cursor: pointer;
+
+        svg {
+          path {
+            stroke: $dark-color-3;
+          }
+        }
+      }
+    }
+
+  }
+
+  .top-navbar {
+    background-color: $dark-color-2;
+
+    .topnav-left {
+      .responsive-bar {
+        color: #FFF;
+        margin-right: 10px;
+        display: none;
+      }
+
+      .search {
+        .input-group {
+
+          .input-group-prepend {
+
+            svg {
+              path {
+                fill: $dark-color-3;
+              }
+            }
+          }
+
+          input {
+            background: $dark-color-1;
+            border: 1px solid $dark-color-1;
+            color: $dark-color-3;
+
+            &::placeholder {
+              color: $dark-color-3;
+            }
+          }
+        }
+      }
+    }
+
+    .topnav-right {
+
+      .top-menu {
+
+        .top-menu-items {
+          background: $dark-color-1;
+
+          .language {
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+
+        .top-menu-profile {
+          background: transparent;
+
+          .divider {
+            background: $dark-color-3;
+          }
+
+          h4 {
+            color: $light-gray;
+          }
+        }
+      }
+    }
+  }
+
+  .page-header {
+    background: $dark-color-2;
+
+    .breadcrumb {
+      .breadcrumb-item {
+        svg {
+          fill: $dark-color-3;
+        }
+
+        a {
+          color: #f59630;
+
+          &::after {
+            background: url('@/assets/images/Next.svg');
+          }
+        }
+
+        span {
+          color: $dark-color-3;
+        }
+      }
+    }
+
+
+    .page-title {
+      h3 {
+        color: $dark-color-3;
+      }
+    }
+  }
+
+  .primary-btn {
+    border: 1px solid $dark-color-1;
+    background: $dark-color-1;
+    color: $light-gray;
+
+    svg {
+      path {
+        stroke: $light-gray;
+      }
+    }
+
+    &:hover {
+      background: #f59630;
+      border: 1px solid #f59630;
+      color: #FFF;
+
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+
+  table {
+    background: $dark-color-2;
+
+    tr {
+      th {
+        background: $dark-color-4 !important;
+        color: $light-gray !important;
+        padding: 12px 20px;
+
+        button {
+          i {
+            color: $dark-color-3 !important;
+          }
+        }
+      }
+    }
+
+    tr {
+      position: relative;
+
+      &:hover {
+        td {
+          background: $dark-color-4;
+        }
+      }
+
+      td {
+        padding: 8px 20px !important;
+        border-color: $dark-color-3 !important;
+        color: $dark-color-3 !important;
+      }
+    }
+
+  }
+
+  label {
+    color: $dark-color-3;
+  }
+
+  .input-box {
+    .prefix {
+      color: $dark-color-3;
+    }
+
+    input {
+      border: 1px solid $dark-color-3;
+      background: $dark-color-2;
+      color: $dark-color-3;
+    }
+  }
+
+  .form-input {
+    border: 1px solid $dark-color-3;
+    background: $dark-color-2;
+    color: $dark-color-3;
+  }
+
+  .form-textarea {
+    border: 1px solid $dark-color-3;
+    background: $dark-color-2;
+    color: $dark-color-3;
+  }
+
+  .form-select {
+    border: 1px solid $dark-color-3;
+    background: $dark-color-2;
+    color: $dark-color-3;
+  }
+
+  .multiselect__tags {
+    border: 1px solid $dark-color-3;
+    background: $dark-color-2;
+    color: $dark-color-3;
+
+    input {
+      background: transparent;
+    }
+
+    .multiselect__single {
+      background: transparent;
+      color: $dark-color-3;
+    }
+  }
+
+  .vue-treeselect__control {
+    border: 1px solid $dark-color-3;
+    background: $dark-color-2;
+    color: $dark-color-3;
+  }
+
+
+  .card {
+    background: $dark-color-2;
+    border: 1px solid $dark-color-2;
+  }
+
+  .card-header {
+
+    h3 {
+      color: $dark-color-3;
+    }
+
+    h4 {
+      color: $dark-color-3;
+    }
+
+    p {
+      color: $dark-color-3;
+    }
+  }
+
+  .tab-header {
+
+    ul {
+      background: $dark-color-2;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &:last-child {
+          .nav-link {
+            &::before {
+              display: none;
+            }
+
+          }
+        }
+
+        .nav-link {
+          border: 1px solid rgba(199, 199, 199, 1) !important;
+          background: rgba(199, 199, 199, 1) !important;
+          color: $dark-color-3 !important;
+        }
+
+        .nav-link.active {
+          background: #F59630 !important;
+          border: 1px solid #F59630 !important;
+          cursor: pointer !important;
+          color: #fff !important;
+
+          &::before {
+            background-image: url('@/assets/images/orrangebar.png');
+          }
+        }
+      }
+
+    }
+  }
+
+  .search-filters {
+    .search-filter {
+      background: $dark-color-2;
+      border: 1px solid $dark-color-3;
+
+      input {
+        color: $dark-color-3;
+      }
+    }
+  }
+
+  .global-setting {
+    .settings {
+      background: $dark-color-1;
+
+      .setting-border {
+        background: linear-gradient(270deg, rgba(255, 255, 255, 0.10) 0%, #727279 50.52%, rgba(255, 255, 255, 0.10) 100%);
+      }
+
+      .search-setting {
+        input {
+          background: $dark-color-2;
+          color: #727279;
+
+          &::placeholder {
+            opacity: 1;
+            color: #727279;
+          }
+        }
+      }
+
+      .setting-accordians {
+
+        .accordion {
+
+          .accordion-item {
+            background: $dark-color-4;
+
+            .accordion-header {
+              .accordion-button {
+                background: #F59630;
+                color: #fbfbfb;
+              }
+            }
+
+            .accordion-body {
+
+              .listing {
+
+                li {
+                  a {
+                    color: #727279;
+
+                    i {
+                      font-size: 10px;
+                      margin-right: 16px;
+                    }
+
+                    &:hover {
+                      background: $dark-color-2;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .self-service {
+    .self-service-box {
+      background: $dark-color-2;
+
+      p {
+        color: $dark-color-3 ;
+      }
+
+      &:hover {
+        background: #F59630;
+
+        p {
+          color: $white ;
+        }
+      }
+    }
+  }
+}

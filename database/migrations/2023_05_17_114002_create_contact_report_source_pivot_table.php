@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('contact_report_source_pivot', function (Blueprint $table) {
+            $table->id();
+            // Foreign key for contact_reports table
+            $table->unsignedBigInteger('contact_report_id');
+            $table->foreign('contact_report_id')->references('id')->on('contact_reports')->onDelete('cascade');
+
+            // Foreign key for contact_report_sources table
+            $table->unsignedBigInteger('contact_report_source_id');
+            $table->foreign('contact_report_source_id')->references('id')->on('contact_report_sources')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('contact_report_source_pivot');
+    }
+};

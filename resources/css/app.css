@@ -1,0 +1,152 @@
+@import "buttons";
+@import "form";
+@import "reset";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: rgb(41, 87, 164);
+    --secondary-color: rgb(237, 125, 49);
+    --text-color: rgb(31, 81, 255);
+    --logo-color: #f59630;
+}
+
+.tag {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.py-4 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.px-6 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+table {
+    table-layout: auto; /* fix the table layout to prevent scrollbar */
+}
+@media screen and (max-width: 1700px) {
+    table {
+        /* table-layout: fixed; */
+         /* fix the table layout to prevent scrollbar */
+    }
+}
+/* set a max width to the the first child of table cells to prevent overflow */
+/* td > :only-child {
+    max-width: 50ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    padding: 10px;
+} */
+/* @media screen and (max-width: 1700px) {
+    td > :only-child {
+        max-width: 30ch;
+    }
+} */
+
+/* break text on hover */
+/* td > :only-child:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+} */
+
+/* prevent table header from overflowing */
+th {
+    text-overflow: clip;
+    white-space: normal;
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+.text-color {
+    color: var(--text-color);
+}
+
+.docsHeroTop {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 22px;
+}
+
+.docsHeroLogo {
+    background-color: var(--logo-color);
+}
+
+.docsHeroLayoutColor {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.docsHeroColorBlue {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.docsHeroColorBlue:hover {
+    background-color: var(--secondary-color);
+}
+
+.docsHeroColorBlue:focus {
+    outline-color: var(--secondary-color) !important;
+    outline-offset: 2px;
+    outline-width: 3px;
+    outline-style: solid;
+}
+
+.menuTextColor {
+    color: #b6bfbf;
+    fill: #b6bdbf;
+}
+
+.input-box-length {
+    max-width: 50ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.input-box-length:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.description-box-length {
+    max-width: 50ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
+.overflow-text-users-table {
+    width: 15ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.overflow-text-users-table:hover {
+    text-overflow: clip;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.margin-bottom-3rem {
+    margin-bottom: 3rem;
+}

@@ -1,0 +1,715 @@
+.main-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: #2957A4;
+    z-index: 10;
+    padding: 12px 0px;
+
+
+    .logo-box {
+        padding: 0 15px;
+        padding-bottom: 15px;
+
+        .logo-sm {
+            display: none;
+        }
+
+        .logo-lg {
+            svg {
+                width: 100%;
+            }
+        }
+    }
+
+    .upper-menu {
+        margin: 0 15px;
+        margin-bottom: 15px;
+
+        .menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            .menu-item {
+                margin-bottom: 7px;
+
+                .menu-link {
+                    border-radius: 6px;
+                    background: rgba(255, 255, 255, 0.15);
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 12px;
+                    cursor: pointer;
+                    position: relative;
+
+                    .icon {
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    .tasks {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 6px;
+                        background: rgba(0, 0, 0, 0.20);
+                        position: absolute;
+                        right: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    &:hover {
+                        background: #FFF;
+
+                        .icon {
+                            svg {
+                                path {
+                                    stroke: #F59630;
+                                }
+                            }
+                        }
+
+                        span {
+                            color: #38414A;
+                        }
+
+                        .tasks {
+                            color: #fff;
+                            background: #F59630;
+                        }
+                    }
+                }
+
+                .menu-link.router-link-active {
+                    background: #FFF;
+
+                    .icon {
+                        svg {
+                            path {
+                                stroke: #F59630;
+                            }
+                        }
+                    }
+
+                    span {
+                        color: #38414A;
+                    }
+
+                    .tasks {
+                        color: #fff;
+                        background: #F59630;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: #D0D6DE;
+
+    }
+    .back-to-main{
+        margin-bottom: 15px;
+    }
+
+    .upper-menu-dropdown-btn {
+        margin: 0 15px;
+        margin-bottom: 10px;
+
+
+        svg {
+            transition: 0.3s all ease-in-out;
+            transform: rotate(180deg);
+
+            path {
+                fill: #fff;
+            }
+        }
+    }
+
+    .my-task-sidebar-menu {
+        display: none;
+        padding: 0 15px;
+        overflow-y: auto;
+        height: calc(70vh - 100px);
+
+        .menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            .menu-item {
+                margin-bottom: 7px;
+
+                .menu-link {
+                    border-radius: 6px;
+                    background: transparent;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 12px;
+                    cursor: pointer;
+
+                    .icon {
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+
+                    .action-btn {
+                        display: none;
+
+                        svg {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+
+                    &:hover {
+                        background: #FFF;
+
+                        .icon {
+                            svg {
+                                path {
+                                    stroke: #F59630;
+                                }
+                            }
+                        }
+
+                        .action-btn {
+                            display: block;
+
+                            svg {
+                                path {
+                                    stroke: #F59630;
+                                }
+                            }
+
+                            .setting {
+                                svg {
+                                    path {
+                                        fill: #F59630;
+                                        stroke: transparent;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        span {
+                            color: #38414A;
+                        }
+                    }
+                }
+
+                .menu-link.add-worksapce {
+                    background: transparent;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        background: transparent !important;
+
+                        span {
+                            color: #FFF !important;
+                        }
+                    }
+
+                    span {
+                        text-transform: uppercase;
+                    }
+                }
+
+                .menu-link.router-link-active {
+                    background: #FFF;
+
+                    .icon {
+                        svg {
+                            path {
+                                stroke: #F59630;
+                            }
+                        }
+                    }
+
+                    .action-btn {
+                        display: block;
+
+                        svg {
+                            path {
+                                stroke: #F59630;
+                            }
+                        }
+
+                        .setting {
+                            svg {
+                                path {
+                                    fill: #F59630;
+                                    stroke: transparent;
+                                }
+                            }
+                        }
+
+                    }
+
+                    span {
+                        color: #38414A;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar-menu {
+        padding: 0 15px;
+        overflow-y: auto;
+        height: calc(70vh - 100px);
+        &::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: #818cf8;
+            outline: 1px solid slategrey;
+            border-radius: 5px;
+        }
+        ul.side-menu {
+            li.menu-title {
+                padding: 10px 0 6px;
+                letter-spacing: .05em;
+                pointer-events: none;
+                cursor: default;
+                font-size: .6875rem;
+                text-transform: uppercase;
+                color: #6e768e;
+                font-weight: 600;
+                color: #fff;
+            }
+
+            li.menu-item {
+                margin-bottom: 6px;
+
+                a.menu-link {
+                    color: rgba(255, 255, 255, 1);
+                    font-weight: 400;
+                    font-size: 14px;
+                    padding: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 40px;
+
+                    .menu-icon {
+                        width: 35px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+
+                        svg {
+                            margin-right: 10px;
+                            display: inline-block;
+                            width: 22px;
+                            height: 23px;
+                           path{
+                            fill: #FFF;
+                           }
+                        }
+                        .stroke-icon{
+                            path{
+                                fill: transparent;
+                                stroke: #fff;
+                            }
+                        }
+                        .circle-icon{
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+
+                    span {
+                        vertical-align: bottom;
+                    }
+
+                    .menu-arrow {
+                        transition: 0.2s all ease-in-out;
+
+                        svg {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 1);
+                        color: rgba(56, 65, 74, 1);
+                        border-radius: 6px;
+
+                        svg {
+                            path {
+                                fill: #F59630;
+                            }
+                        }
+                        .stroke-icon{
+                            path{
+                                stroke: #F59630;
+                                fill: transparent;
+                            }
+                        }
+                    }
+                }
+
+                a.router-link-active {
+                    background: rgba(255, 255, 255, 1);
+                    color: rgba(56, 65, 74, 1);
+                    border-radius: 6px;
+
+                    svg {
+                        path {
+                            fill: #F59630 !important;
+                        }
+                    }
+                    .stroke-icon{
+                        path{
+                            stroke: #F59630 !important;
+                            fill: transparent !important;
+                        }
+                    }
+                }
+
+                .collapse {
+                    display: none;
+                }
+
+                .collapse.show {
+                    visibility: visible;
+                    display: block;
+                }
+
+                ul {
+                    margin: 0px;
+                    padding: 0px;
+                    position: relative;
+                    z-index: 1;
+
+                    li {
+                        a {
+                            padding-left: 25px !important;
+                            &:hover {
+                                border-radius: 0;
+                            }
+                        }
+                        ul{
+                            li{
+                                a{
+                                    padding-left: 30px !important;
+                                }
+                            }
+                        }
+                    }
+
+                    li.menuitem-active {
+                        a.router-link-active {
+                            background: rgba(255, 255, 255, 1);
+                            color: rgba(56, 65, 74, 1);
+                            border-radius: 0;
+
+                            svg {
+                                path {
+                                    fill: #F59630;
+                                }
+                            }
+                            .stroke-icon{
+                                path{
+                                    stroke: #F59630;
+                                    fill: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            li.dropdown {
+                width: 100%;
+                height: 100%;
+                border-radius: 6px;
+                background: rgba(255, 255, 255, 0.15);
+                overflow: hidden;
+
+                a.menu-link {
+                    &:hover {
+                        border-radius: 0;
+                    }
+                }
+
+                a.router-link-active {
+                    border-radius: 0px;
+                }
+
+                .has-arrow {
+                    .menu-arrow {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+
+        }
+    }
+
+    .bottom_nav {
+        position: absolute;
+        bottom: 15px;
+        left: 25px;
+        z-index: 999;
+
+        a {
+            cursor: pointer;
+        }
+    }
+}
+
+.compact-upper-menu {
+    .upper-menu {
+        transition: 0.4s all ease-in-out;
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .menu-item {
+                margin-bottom: 0px;
+
+                .menu-link {
+                    width: 40px;
+                    height: 40px;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .icon {
+                        margin-right: 0px !important;
+                    }
+
+                    span {
+                        display: none;
+                    }
+
+                    .tasks {
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 8px;
+                        border: 0.5px solid #FFF;
+                        background: #F59630;
+                        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+                        position: absolute;
+                        top: -5px;
+                        right: -5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #fff;
+                        font-size: 8px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                    }
+
+                    &:hover {
+                        background: #FFF;
+
+                        .icon {
+                            svg {
+                                path {
+                                    stroke: #F59630;
+                                }
+                            }
+                        }
+
+                        span {
+                            color: #38414A;
+                        }
+
+                        .tasks {
+                            color: #fff;
+                            background: #F59630;
+                        }
+                    }
+                }
+
+                .menu-link.router-link-active {
+                    background: #FFF;
+
+                    .icon {
+                        svg {
+                            path {
+                                stroke: #F59630;
+                            }
+                        }
+                    }
+
+                    span {
+                        color: #38414A;
+                    }
+
+                    .tasks {
+                        color: #fff;
+                        background: #F59630;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .upper-menu-dropdown-btn {
+        svg {
+            transition: 0.3s all ease-in-out;
+            transform: rotate(0deg);
+        }
+    }
+
+    .sidebar-menu {
+        height: calc(86vh - 100px);
+    }
+
+    .my-task-sidebar-menu {
+        height: calc(86vh - 100px);
+    }
+}
+
+.my-task-page {
+    .my-task-sidebar-menu {
+        display: block;
+    }
+
+    .sidebar-menu {
+        display: none;
+    }
+}
+
+// .sidebar {
+//     position: fixed;
+//     left: 0;
+//     top: 0;
+//     width: 240px;
+//     height: 100vh;
+//     background: #2957A4;
+//     z-index: 10;
+//     padding: 12px;
+
+//     .logo {
+//         padding: 18px 0;
+
+//         svg {
+//             width: 100%;
+//         }
+//     }
+
+//     .upper-menu {
+//         margin-bottom: 20px;
+
+
+//         .menu {
+//             padding: 0;
+//             margin: 0;
+//             list-style: none;
+
+//             .menu-item {
+//                 margin-bottom: 7px;
+
+//                 .menu-link {
+//                     border-radius: 6px;
+//                     background: rgba(255, 255, 255, 0.15);
+//                     height: 40px;
+//                     display: flex;
+//                     align-items: center;
+//                     padding: 0 12px;
+//                     cursor: pointer;
+
+//                     .icon {
+//                         margin-right: 10px;
+//                     }
+
+//                     span {
+//                         color: #FFF;
+//                         font-size: 14px;
+//                         font-style: normal;
+//                         font-weight: 400;
+//                         line-height: normal;
+//                     }
+
+//                     &:hover {
+//                         background: #FFF;
+
+//                         .icon {
+//                             svg {
+//                                 path {
+//                                     stroke: #F59630;
+//                                 }
+//                             }
+//                         }
+
+//                         span {
+//                             color: #38414A;
+//                         }
+//                     }
+//                 }
+
+//                 .menu-link.router-link-active {
+//                     background: #FFF;
+
+//                     .icon {
+//                         svg {
+//                             path {
+//                                 stroke: #F59630;
+//                             }
+//                         }
+//                     }
+
+//                     span {
+//                         color: #38414A;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+
+
+//     .divider {
+//         height: 1px;
+//         background: #D0D6DE;
+//         width: 100%;
+//         margin-bottom: 20px;
+//     }
+
+// }

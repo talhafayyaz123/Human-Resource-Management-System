@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class InvoiceTemplateCategoryProduct extends BaseModel
+{
+    use HasFactory;
+
+    protected $fillable = ['invoice_template_id', 'product_ids', 'category_id', 'hourly_rate', 'discount', 'tax',
+        'tax_rate', 'netto_total', 'quantity', 'additional_description','product_name'];
+
+    protected $casts = ['product_ids' => 'array','product_name' => 'array'];
+
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class, 'category_id');
+    }
+}

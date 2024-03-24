@@ -1,0 +1,142 @@
+.top-navbar {
+  background-color: #2957a4;
+  border-radius: 0 0 0 6px;
+  box-shadow: -4px 4px 4px #0000001a;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all .1s ease-out;
+  z-index: 12;
+  height: 55px;
+  left: 275px;
+  padding: 8px 15px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .topnav-left {
+    display: flex;
+    align-items: center;
+
+    .responsive-bar {
+      color: #FFF;
+      margin-right: 10px;
+      display: none;
+    }
+
+    .search {
+      width: 350px;
+
+      .input-group {
+        position: relative;
+        width: 100%;
+
+        .input-group-prepend {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translate(0, -50%);
+
+          svg {
+            width: 14px;
+          }
+        }
+
+        input {
+          background: hsla(0, 0%, 100%, .15);
+          border: 1px solid hsla(0, 0%, 100%, .15);
+          color: #fff;
+          border-radius: 6px !important;
+          padding: 10px 12px;
+          padding-left: 44px;
+          height: 35px;
+          font-size: 14px;
+          width: 100%;
+
+          &::placeholder {
+            opacity: 1 !important;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .topnav-right {
+
+    .top-menu {
+      display: flex;
+      align-items: center;
+      .expand-ico{
+        svg{
+          stroke: #FFF;
+        }
+      }
+
+      .top-menu-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: hsla(0, 0%, 100%, .15);
+        border-radius: 6px;
+        width: 35px;
+        height: 35px;
+        margin-right: 15px;
+        
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .language {
+          svg {
+            width: 16px;
+            height: 16px;
+            // fill: none;
+            // stroke: none;
+            // path{
+            //   fill: none;
+            // stroke: none;
+            // }
+          }
+        }
+
+        svg {
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+        }
+      }
+
+      .top-menu-profile {
+        width: auto;
+        height: auto;
+        background: transparent;
+
+        .divider {
+          width: 1px;
+          height: 35px;
+          background: #d0d6de;
+        }
+
+        h4 {
+          color: #fff;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin-right: 15px;
+        }
+
+        .profile-img {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

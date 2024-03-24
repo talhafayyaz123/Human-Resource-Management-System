@@ -1,0 +1,336 @@
+.rightbar-main {
+    position: relative;
+
+    .rightbar {
+        visibility: hidden;
+        opacity: 0;
+
+        .rightbar-close-overlay {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #000;
+            opacity: 0.3;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        .rightbar-settings {
+            position: fixed;
+            right: -900px;
+            top: 0;
+            width: 454px;
+            height: 100vh;
+            background: $primary-color;
+            padding: 20px;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s all ease-in-out;
+            z-index: 9999;
+
+            .rightbar-close-setting {
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                left: -15px;
+                cursor: pointer;
+            }
+
+            .rightbar-setting-border {
+                width: 100%;
+                height: 1px;
+                border-radius: 100px;
+                background: linear-gradient(270deg, rgba(255, 255, 255, 0.10) 0%, #FFF 50.52%, rgba(255, 255, 255, 0.10) 100%);
+            }
+
+            .rightbar-setting-header {
+                padding: 20px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                h3 {
+                    color: #F59630;
+                    font-size: 12px;
+                    font-style: normal;
+                    font-weight: 900;
+                    line-height: normal;
+                    letter-spacing: 8.4px;
+                    text-transform: uppercase;
+                }
+            }
+
+            .rightbar-content {
+                margin-top: 20px;
+                overflow-y: auto;
+                padding-right: 12px;
+                height: calc(100vh - 100px);
+                position: relative;
+
+                &::-webkit-scrollbar-track {
+                    border-radius: 10px;
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                &::-webkit-scrollbar {
+                    width: 12px;
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 10px;
+                    background-color: #F59630;
+                }
+
+                .accordion {
+                    margin-bottom: 20px;
+
+                    .accordion-item {
+                        border: none !important;
+                        background: transparent;
+
+                        .accordion-header {
+                            .accordion-button {
+                                background: #F59630;
+                                border: 1px solid #F59630;
+                                border-bottom: 0;
+                                border-radius: 4px 4px 0 0;
+                                height: 30px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding: 0 15px;
+                                box-shadow: none;
+
+                                &:focus {
+                                    box-shadow: none;
+                                }
+
+                                span {
+                                    color: #fff;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 700;
+                                    line-height: normal;
+                                }
+
+                                &::after {
+                                    display: none;
+                                }
+                            }
+
+                            .accordion-button.collapsed {
+                                border-radius: 4px !important;
+                            }
+                        }
+
+                        .accordion-body {
+                            border: 1px solid rgba(208, 213, 221, 0.70);
+                            border-top: 0;
+                            background: rgba(255, 255, 255, 0.15);
+                            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+                            padding: 20px;
+                            border-radius: 0 0 6px 6px;
+                        }
+                    }
+                }
+
+                .form-control {
+                    border-radius: 6px;
+                    background: rgba(255, 255, 255, 0.30);
+                    // height: 48px !important;
+                    border: 1px solid #fff !important;
+                    color: #FFF;
+                    font-size: 14px;
+                }
+
+                .multiselect {
+                    border-radius: 6px;
+                    background: rgba(255, 255, 255, 0.30);
+                    // height: 48px !important;
+                    border: 1px solid #fff !important;
+                    color: #FFF;
+                    font-size: 14px;
+
+                    .multiselect-placeholder {
+                        color: #fff;
+                    }
+
+                    .multiselect-single-label {
+                        color: #fff;
+                    }
+
+                    input {
+                        background: transparent !important;
+                    }
+                }
+
+                .checkbox-group label {
+                    color: #C7C7C7;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 20px;
+                    align-items: flex-start;
+                }
+
+                .checkbox-group .checkbox-label:before {
+                    border: 2px solid rgba(199, 199, 199, 1);
+                    background: #fff;
+                }
+
+                .checkbox-group input:checked+label::before {
+                    border: 2px solid #F59630;
+                }
+
+                .checkbox-group input:checked+label::after {
+                    top: 4px;
+                    left: 8px;
+                    width: 6px;
+                    height: 12px;
+                }
+
+                .checkbox-group input:checked+label {
+                    color: #fff;
+                }
+
+                .general-tab {
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+
+                        li {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-bottom: 10px;
+
+                            p {
+                                color: #fff;
+                                font-size: 12px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 20px;
+                            }
+
+                            select {
+                                background: #fff;
+                                border-radius: 4px;
+                                border: 1px solid #EAEAEF;
+                                box-shadow: 0px 1px 4px 0px rgba(33, 33, 52, 0.10);
+                                display: flex;
+                                width: 55px;
+                                height: 32px;
+                                padding: 0 6px;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 8px;
+                                font-size: 12px;
+
+                                &:focus {
+                                    outline: 0;
+                                }
+                            }
+
+                            button {
+                                background: #fff;
+                                border-radius: 4px;
+                                border: 1px solid #EAEAEF;
+                                box-shadow: 0px 1px 4px 0px rgba(33, 33, 52, 0.10);
+                                display: flex;
+                                width: 55px;
+                                height: 32px;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 8px;
+                            }
+                        }
+                    }
+                }
+
+                .filters-tab {
+                    label {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        width: 40%;
+                    }
+                }
+
+                .short-tab {
+                    h4 {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                    }
+                }
+                .display-tab{
+                    h4 {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                    }
+                    p{
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal; 
+                    }
+                    hr{
+                        border: 2px solid #F59630;
+                    }
+                }
+                .chart-tab{
+                    label {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                    h4 {
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                    }
+                    p{
+                        color: #FFF;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal; 
+                    }
+                    .divider{
+                        height: 2px ;
+                        background: #F59630;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.rightbar-main.show {
+    .rightbar {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .rightbar-settings {
+        visibility: visible;
+        opacity: 1;
+        right: 0px;
+    }
+}

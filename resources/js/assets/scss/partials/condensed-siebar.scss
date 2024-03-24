@@ -1,0 +1,101 @@
+.sidebar-condensed {
+    .main-sidebar {
+        width: 70px;
+        padding: 20px 0;
+        transition: all .2s ease-out;
+
+        .logo-box {
+            padding: 0 15px;
+            height: auto;
+
+            .logo-sm {
+                display: block;
+                animation: fadeIn 0.5s ease-in-out;
+            }
+
+            .logo-lg {
+                display: none;
+            }
+        }
+
+        .upper-menu {
+            // padding: 0 15px 15px;
+            margin-top: 20px;
+
+            ul {
+                li {
+                    a {
+                        justify-content: center;
+                        .icon{
+                            margin: 0 !important;
+                        }
+                        svg {
+                            margin: 0;
+                        }
+
+                        span {
+                            display: none;
+                        }
+                        .tasks{
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+        .upper-menu-dropdown-btn{
+            .upper-menu-dropdown{
+                display: none;
+            }
+        }
+
+        .sidebar-menu {
+            padding: 0 15px;
+
+            ul {
+                li.menu-item {
+                    a.menu-link {
+                        justify-content: center;
+                        padding: 0 !important;
+
+                        .menu-icon {
+                            width: auto;
+                            display: block;
+
+                            svg {
+                                margin-right: 0;
+                            }
+                        }
+
+                        span {
+                            display: none;
+                        }
+
+                        .menu-arrow {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom_nav {
+
+            left: 15px;
+        }
+
+    }
+
+    .left-side-menu .sidebar-menu ul li a svg {
+        margin: 0;
+    }
+
+    .top-navbar {
+        left: 85px;
+    }
+
+    .content-page {
+        margin-left: 70px;
+    }
+
+}

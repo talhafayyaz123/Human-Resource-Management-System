@@ -1,0 +1,92 @@
+.tab-header {
+  margin-bottom: 15px;
+  height: 50px;
+  overflow: auto;
+
+  ul {
+    border-radius: 6px;
+    height: 100%;
+    overflow: auto;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: $light-gray;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      &:last-child {
+        .nav-link {
+          &::before {
+            display: none;
+          }
+
+        }
+      }
+
+      .nav-link {
+        text-align: center;
+        border: 1px solid rgba(199, 199, 199, 1) !important;
+        background: rgba(199, 199, 199, 1) !important;
+        padding: 12px 30px 12px 60px !important;
+        color: #38414A !important;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &::before{
+          content: '';
+          background-image: url('@/assets/images/whitebar.png');
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: contain;
+          position: absolute;
+          height: 100%;
+          width: 54px;
+          top: 0;
+          right: -52px;
+          z-index: 1;
+          transition: 0.2s all ease-in-out;
+        }
+      }
+   
+      .nav-link.step-done {
+        background: rgba(41, 87, 164, 1) !important;
+        border: 1px solid rgba(41, 87, 164, 1) !important;
+        cursor: pointer !important;
+        color: #fff !important;
+        &::before{
+          background-image: url('@/assets/images/bluebar.png');
+        }
+      }
+
+      .nav-link.active {
+        background: #F59630 !important;
+        border: 1px solid #F59630 !important;
+        cursor: pointer !important;
+        color: #fff !important;
+
+        &::before{
+          background-image: url('@/assets/images/orrangebar.png');
+        }
+      }
+      .nav-link.disabled{
+        cursor: no-drop;
+      }
+
+    }
+  }
+}

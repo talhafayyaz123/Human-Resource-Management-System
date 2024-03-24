@@ -1,0 +1,35 @@
+<!-- this is a sample html file to demostrate how the survey can be implemented  -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/@vueup/vue-quill@latest"></script>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@vueup/vue-quill@latest/dist/vue-quill.snow.prod.css"
+        />
+        <link rel="stylesheet" href="./survey.css" />
+        <!-- link the dowloaded survey.css file -->
+        <title>Survey Viewer</title>
+    </head>
+    <body>
+        <!-- container in which the survey will render -->
+        <div class="survey-container"></div>
+    </body>
+    <script src="./survey.js"></script>
+    <!-- link the dowloaded survey.js file -->
+    <script src="./surveyJson.js"></script>
+    <!-- get the survey JSON from the dowloaded survey.json file -->
+    <script>
+        // create a survey object by passing the JSON and the identifier of the container element to render the survey
+        const baseUrl = "http://127.0.0.1:8000"; // the base url for the API routes of survey APIs
+        const survey = new Survey(surveyJson, ".survey-container", baseUrl);
+        // call this method on the survey object to render the survey
+        survey.createSurvey();
+    </script>
+</html>

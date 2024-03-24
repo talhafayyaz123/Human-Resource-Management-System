@@ -1,0 +1,35 @@
+.workshop-card {
+    .workshop-card-header {
+        border-radius: 6px 6px 0px 0px;
+        border: 1px solid rgba(208, 213, 221, 0.70);
+        background: #C7C7C7;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 25px;
+
+        h3 {
+            color: #38414A;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: 0.9px;
+        }
+    }
+
+    .workshop-card-body {
+        border-radius: 0px 0px 6px 6px;
+        border: 1px dashed rgba(56, 65, 74, 0.70);
+        border-top: none;
+        background: rgba(255, 255, 255, 0.30);
+        padding: 15px 25px;
+    }
+}
+.widget-config-btn{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translate(0 , -50%);
+    cursor: pointer;
+}

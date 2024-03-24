@@ -1,0 +1,2345 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "description": "L5 Swagger OpenApi description",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/companies": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Get list of companies",
+                "description": "Returns list of companies",
+                "operationId": "getCompaniesList",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Get records in one page default is 10",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Sort by column",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Sort order (asc, desc)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search in different column records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isSystem",
+                        "in": "query",
+                        "description": "Get order by customer type",
+                        "schema": {
+                            "type": "boolen"
+                        }
+                    },
+                    {
+                        "name": "customerType",
+                        "in": "query",
+                        "description": "Get the customer type records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Store company records",
+                "description": "Store a newly created resource in storage",
+                "operationId": "StoreCompany",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "companyName",
+                                    "vatId",
+                                    "type",
+                                    "customerType",
+                                    "addressFirst",
+                                    "city",
+                                    "country",
+                                    "state",
+                                    "zip",
+                                    "url",
+                                    "bankDetails"
+                                ],
+                                "properties": {
+                                    "companyName": {
+                                        "type": "string"
+                                    },
+                                    "vatId": {
+                                        "type": "string"
+                                    },
+                                    "fax": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "customerType": {
+                                        "type": "string"
+                                    },
+                                    "addressFirst": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "zip": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "termsOfPayment": {
+                                        "type": "string"
+                                    },
+                                    "invoiceEmail": {
+                                        "type": "string"
+                                    },
+                                    "defaultServiceProduct": {
+                                        "type": "string"
+                                    },
+                                    "defaultServiceHourlyRate": {
+                                        "type": "string"
+                                    },
+                                    "defaultServiceDailyRate": {
+                                        "type": "string"
+                                    },
+                                    "discount": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "notes": {
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "type": "string"
+                                    },
+                                    "orderProbability": {
+                                        "type": "string"
+                                    },
+                                    "assignees": {
+                                        "type": "object",
+                                        "example": "[1,2]"
+                                    },
+                                    "bankDetails": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "bankName",
+                                                "swift",
+                                                "iban"
+                                            ],
+                                            "properties": {
+                                                "bankName": {
+                                                    "type": "string"
+                                                },
+                                                "swift": {
+                                                    "type": "string"
+                                                },
+                                                "iban": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/companies/{id}": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Get single record of Company",
+                "description": "Display the specified resource",
+                "operationId": "getCompanySingleRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of company record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Update company records",
+                "description": "Update the specified resource in storage",
+                "operationId": "UpdateCompany",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of company record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "companyName",
+                                    "vatId",
+                                    "type",
+                                    "customerType",
+                                    "addressFirst",
+                                    "city",
+                                    "country",
+                                    "state",
+                                    "zip",
+                                    "url",
+                                    "bankDetails"
+                                ],
+                                "properties": {
+                                    "companyName": {
+                                        "type": "string"
+                                    },
+                                    "vatId": {
+                                        "type": "string"
+                                    },
+                                    "fax": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    },
+                                    "customerType": {
+                                        "type": "string"
+                                    },
+                                    "addressFirst": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "zip": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "termsOfPayment": {
+                                        "type": "string"
+                                    },
+                                    "invoiceEmail": {
+                                        "type": "string"
+                                    },
+                                    "defaultServiceProduct": {
+                                        "type": "string"
+                                    },
+                                    "defaultServiceHourlyRate": {
+                                        "type": "string"
+                                    },
+                                    "defaultServiceDailyRate": {
+                                        "type": "string"
+                                    },
+                                    "discount": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "notes": {
+                                        "type": "string"
+                                    },
+                                    "size": {
+                                        "type": "string"
+                                    },
+                                    "orderProbability": {
+                                        "type": "string"
+                                    },
+                                    "assignees": {
+                                        "type": "object",
+                                        "example": "[1,2]"
+                                    },
+                                    "bankDetails": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "bankName",
+                                                "swift",
+                                                "iban"
+                                            ],
+                                            "properties": {
+                                                "bankName": {
+                                                    "type": "string"
+                                                },
+                                                "swift": {
+                                                    "type": "string"
+                                                },
+                                                "iban": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Delete single record of Company",
+                "description": "Remove the specified resource from storage",
+                "operationId": "DeleteCompanySingleRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of company record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/companies/download-csv": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "export company csv file",
+                "description": "Export csv of all leads or companies.",
+                "operationId": "CompaniesCsvFile",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/companies/download-latest-csv": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "export latest company csv file",
+                "description": "Get latest exported csv of all leads or companies.Their location, bank details and terms of payments",
+                "operationId": "CompaniesLatestCsvFile",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/company-locations/company/{id}": {
+            "get": {
+                "tags": [
+                    "Company Location"
+                ],
+                "summary": "Get locations of company",
+                "description": "Display a listing of the resource",
+                "operationId": "GetCompanyLocationsRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of company record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/company-locations": {
+            "post": {
+                "tags": [
+                    "Company Location"
+                ],
+                "summary": "Store company location record",
+                "description": "Store a newly created resource in storage",
+                "operationId": "StoreCompanyLocation",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "addressFirst",
+                                    "zip",
+                                    "companyId",
+                                    "city",
+                                    "country",
+                                    "state"
+                                ],
+                                "properties": {
+                                    "addressFirst": {
+                                        "type": "string"
+                                    },
+                                    "zip": {
+                                        "type": "string"
+                                    },
+                                    "companyId": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "addressSecond": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/company-locations/{id}": {
+            "put": {
+                "tags": [
+                    "Company Location"
+                ],
+                "summary": "Update company location record",
+                "description": "Update the specified resource in storage",
+                "operationId": "UpdateCompanyLocation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of company location record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "addressFirst",
+                                    "zip",
+                                    "companyId",
+                                    "city",
+                                    "country",
+                                    "state"
+                                ],
+                                "properties": {
+                                    "addressFirst": {
+                                        "type": "string"
+                                    },
+                                    "zip": {
+                                        "type": "string"
+                                    },
+                                    "companyId": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "state": {
+                                        "type": "string"
+                                    },
+                                    "addressSecond": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Company Location"
+                ],
+                "summary": "Delete company location record",
+                "description": "Remove the specified resource from storage",
+                "operationId": "DeleteCompanyLocation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of performance record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/contact-reports": {
+            "get": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "Get list of contact reports",
+                "description": "Display a listing of the resource",
+                "operationId": "getContactReportList",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Get records in one page default is 10",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Sort by column",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Sort order (asc, desc)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search in different column records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "Store contact reports",
+                "description": "Store a newly created resource in storage",
+                "operationId": "storeContactReport",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "subject",
+                                    "text",
+                                    "type",
+                                    "priority",
+                                    "contactType",
+                                    "initiatedBy",
+                                    "companyId",
+                                    "createdByEmployee",
+                                    "categoryId",
+                                    "employees",
+                                    "companyEmployees",
+                                    "assignee",
+                                    "contactSources"
+                                ],
+                                "properties": {
+                                    "subject": {
+                                        "type": "string"
+                                    },
+                                    "text": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "customer/lead"
+                                    },
+                                    "priority": {
+                                        "type": "string"
+                                    },
+                                    "contactType": {
+                                        "type": "string"
+                                    },
+                                    "initiatedBy": {
+                                        "type": "string",
+                                        "example": "customer/docshero"
+                                    },
+                                    "companyId": {
+                                        "type": "string"
+                                    },
+                                    "createdByEmployee": {
+                                        "type": "string"
+                                    },
+                                    "categoryId": {
+                                        "type": "integer"
+                                    },
+                                    "employees": {
+                                        "type": "object",
+                                        "example": "[1,3]"
+                                    },
+                                    "companyEmployees": {
+                                        "type": "object",
+                                        "example": "[1,3]"
+                                    },
+                                    "assignee": {
+                                        "type": "integer"
+                                    },
+                                    "contactSources": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "id"
+                                            ],
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "uploadedFiles": {
+                                        "type": "object",
+                                        "example": "[]"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/contact-reports/get-by-resubmit": {
+            "get": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "Get list of contact reports",
+                "description": "Display a listing of the resource",
+                "operationId": "getContactReportByResumbit",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Get records in one page default is 10",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search in different column records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/contact-reports/{id}": {
+            "get": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "Get single contact reports",
+                "description": "Display the specified resource",
+                "operationId": "GetSingleContactReport",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of contacnt report record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "update contact reports",
+                "description": "Update the specified resource in storage",
+                "operationId": "updateContactReport",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of contacnt report record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "subject",
+                                    "text",
+                                    "type",
+                                    "priority",
+                                    "contactType",
+                                    "initiatedBy",
+                                    "companyId",
+                                    "createdByEmployee",
+                                    "categoryId",
+                                    "employees",
+                                    "companyEmployees",
+                                    "assignee",
+                                    "contactSources"
+                                ],
+                                "properties": {
+                                    "subject": {
+                                        "type": "string"
+                                    },
+                                    "text": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "customer/lead"
+                                    },
+                                    "priority": {
+                                        "type": "string"
+                                    },
+                                    "contactType": {
+                                        "type": "string"
+                                    },
+                                    "initiatedBy": {
+                                        "type": "string",
+                                        "example": "customer/docshero"
+                                    },
+                                    "companyId": {
+                                        "type": "string"
+                                    },
+                                    "createdByEmployee": {
+                                        "type": "string"
+                                    },
+                                    "categoryId": {
+                                        "type": "integer"
+                                    },
+                                    "employees": {
+                                        "type": "object",
+                                        "example": "[1,3]"
+                                    },
+                                    "companyEmployees": {
+                                        "type": "object",
+                                        "example": "[1,3]"
+                                    },
+                                    "assignee": {
+                                        "type": "integer"
+                                    },
+                                    "contactSources": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "id"
+                                            ],
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "uploadedFiles": {
+                                        "type": "object",
+                                        "example": "[]"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "Delete single contact reports",
+                "description": "Remove the specified resource from storage",
+                "operationId": "DeleteSingleContactReport",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of contacnt report record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/contact-reports/company": {
+            "get": {
+                "tags": [
+                    "Contact Reports"
+                ],
+                "summary": "Get report by company id",
+                "description": "Display a listing of the resource againts the specific company",
+                "operationId": "getReportByCompany",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of company record",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/performance-records": {
+            "get": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Get list of Performances",
+                "description": "Returns list of Performances",
+                "operationId": "getPerformancesList",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Get records in one page default is 10",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Sort by column",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Sort order (asc, desc)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search in different column records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "showUnapproved",
+                        "in": "query",
+                        "description": "Get the unaproved records",
+                        "schema": {
+                            "type": "boolen"
+                        }
+                    },
+                    {
+                        "name": "companyId",
+                        "in": "query",
+                        "description": "Get the specific company records",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/performance-records/show": {
+            "get": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Get single record of Performances",
+                "description": "Returns single record of Performances",
+                "operationId": "getPerformancesSingleRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "Id of performance record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/store-performance-records": {
+            "post": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Store performance records",
+                "description": "Store performance records on bases of dates and advisor",
+                "operationId": "StorePerformaceRecords",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "startDate",
+                                    "endDate",
+                                    "advisor"
+                                ],
+                                "properties": {
+                                    "startDate": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-01-01"
+                                    },
+                                    "endDate": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-01-01"
+                                    },
+                                    "advisor": {
+                                        "type": "string",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/store-performance-records/manual": {
+            "post": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Store performance records",
+                "description": "Store performance records manually",
+                "operationId": "StorePerformaceRecordsManual",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "startDate",
+                                    "endDate",
+                                    "companyId",
+                                    "entries"
+                                ],
+                                "properties": {
+                                    "startDate": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-01-01"
+                                    },
+                                    "endDate": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2023-01-01"
+                                    },
+                                    "companyId": {
+                                        "type": "string"
+                                    },
+                                    "projectId": {
+                                        "type": "integer"
+                                    },
+                                    "advisorId": {
+                                        "type": "string"
+                                    },
+                                    "entries": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "description",
+                                                "isGoodwill",
+                                                "time",
+                                                "userId"
+                                            ],
+                                            "properties": {
+                                                "date": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "example": ""
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "description"
+                                                },
+                                                "isGoodwill": {
+                                                    "type": "boolean",
+                                                    "example": "true"
+                                                },
+                                                "time": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "userId": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/import-performance-records": {
+            "post": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Import performance records",
+                "description": "Import performance records",
+                "operationId": "ImportPerformaceRecords",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "csv",
+                                    "endDate",
+                                    "companyId",
+                                    "entries"
+                                ],
+                                "properties": {
+                                    "csv": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/performance-record-entries/update/{id}": {
+            "put": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Update performace record entries",
+                "description": "Update performance records entries",
+                "operationId": "UpdatePerformaceRecordEntries",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of performance record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "date",
+                                    "description",
+                                    "isGoodwill",
+                                    "time",
+                                    "userId",
+                                    "editedUserId"
+                                ],
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": ""
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "description"
+                                    },
+                                    "isGoodwill": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "userId": {
+                                        "type": "string",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/performance-record-entries/store/{id}": {
+            "post": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Store performace record entries",
+                "description": "Store performance records entries",
+                "operationId": "StorePerformaceRecordEntries",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of performance record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "date",
+                                    "description",
+                                    "isGoodwill",
+                                    "time",
+                                    "userId"
+                                ],
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": ""
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "description"
+                                    },
+                                    "isGoodwill": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    },
+                                    "time": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "upperOrder": {
+                                        "type": "integer",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/performance-record-entries/change-order/{id}": {
+            "post": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Change order of performace record entries",
+                "description": "Change order performance records entries",
+                "operationId": "ChangeOrderPerformaceRecordEntries",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of performance record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "upperOrder": {
+                                        "type": "integer",
+                                        "example": ""
+                                    },
+                                    "lowerOrder": {
+                                        "type": "integer",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/performance-records/{id}": {
+            "put": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Update performance record",
+                "description": "Update performance record",
+                "operationId": "UpdatePerformaceRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of performance record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "startDate",
+                                    "endDate",
+                                    "editedUserId"
+                                ],
+                                "properties": {
+                                    "projectId": {
+                                        "type": "integer",
+                                        "example": ""
+                                    },
+                                    "startDate": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": ""
+                                    },
+                                    "endDate": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": ""
+                                    },
+                                    "editedUserId": {
+                                        "type": "string",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Performances Records"
+                ],
+                "summary": "Delete performance record",
+                "description": "Delete performance record",
+                "operationId": "DeletePerformaceRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of performance record entry",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/groups": {
+            "get": {
+                "tags": [
+                    "ProductGroups"
+                ],
+                "summary": "Get list of Product Groups",
+                "description": "Returns list of Product Groups",
+                "operationId": "getProductGroupList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/sla-infrastructure": {
+            "get": {
+                "tags": [
+                    "Sla Infrastructure"
+                ],
+                "summary": "Get list of infrasturctures",
+                "description": "Returns list of infrasturctures",
+                "operationId": "getSlaInfrasturcture",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sla Infrastructure"
+                ],
+                "summary": "Store Sla Infrastructure record",
+                "description": "Store a newly created resource in storage",
+                "operationId": "StoreSlaInfrasturcture",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "infrastructureName",
+                                    "access",
+                                    "includedUsers",
+                                    "additionalUser"
+                                ],
+                                "properties": {
+                                    "infrastructureName": {
+                                        "type": "string"
+                                    },
+                                    "access": {
+                                        "type": "boolean"
+                                    },
+                                    "includedUsers": {
+                                        "type": "string"
+                                    },
+                                    "additionalUser": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/sla-infrastructure/{id}": {
+            "get": {
+                "tags": [
+                    "Sla Infrastructure"
+                ],
+                "summary": "Get single record of Sla infrasturcture",
+                "description": "Display the specified resource",
+                "operationId": "getSingleSlaInfrasturcture",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla infrasturcture record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Sla Infrastructure"
+                ],
+                "summary": "Update Sla Infrastructure record",
+                "description": "Update a resource in storage",
+                "operationId": "updateSlaInfrasturcture",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla infrasturcture record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "infrastructureName",
+                                    "access",
+                                    "includedUsers",
+                                    "additionalUser"
+                                ],
+                                "properties": {
+                                    "infrastructureName": {
+                                        "type": "string"
+                                    },
+                                    "access": {
+                                        "type": "boolean"
+                                    },
+                                    "includedUsers": {
+                                        "type": "string"
+                                    },
+                                    "additionalUser": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sla Infrastructure"
+                ],
+                "summary": "Delete single record of Sla infrasturcture",
+                "description": "Delete the specified resource",
+                "operationId": "DeleteSingleSlaInfrasturcture",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla infrasturcture record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/sla-level": {
+            "get": {
+                "tags": [
+                    "Sla Level"
+                ],
+                "summary": "Get list of Sla Level",
+                "description": "Returns list of sla levels",
+                "operationId": "getSlaLevel",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sla Level"
+                ],
+                "summary": "Store Sla Level record",
+                "description": "Store a newly created resource in storage",
+                "operationId": "StoreSlaLevel",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "slaName",
+                                    "levels"
+                                ],
+                                "properties": {
+                                    "slaName": {
+                                        "type": "string"
+                                    },
+                                    "levels": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "priority",
+                                                "incident",
+                                                "change"
+                                            ],
+                                            "properties": {
+                                                "priority": {
+                                                    "type": "string"
+                                                },
+                                                "incident": {
+                                                    "type": "string"
+                                                },
+                                                "change": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/sla-level/{id}": {
+            "get": {
+                "tags": [
+                    "Sla Level"
+                ],
+                "summary": "Get single record of Sla Level",
+                "description": "Display the specified resource",
+                "operationId": "getSingleSlaLevel",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla Level record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Sla Level"
+                ],
+                "summary": "Update Sla Level record",
+                "description": "Update a resource in storage",
+                "operationId": "updateSlaLevel",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla Level record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "slaName",
+                                    "levels"
+                                ],
+                                "properties": {
+                                    "slaName": {
+                                        "type": "string"
+                                    },
+                                    "levels": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "priority",
+                                                "incident",
+                                                "change"
+                                            ],
+                                            "properties": {
+                                                "priority": {
+                                                    "type": "string"
+                                                },
+                                                "incident": {
+                                                    "type": "string"
+                                                },
+                                                "change": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sla Level"
+                ],
+                "summary": "Delete single record of Sla Level",
+                "description": "Delete the specified resource",
+                "operationId": "DeleteSingleSlaLevel",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla Level record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/sla-service-time": {
+            "get": {
+                "tags": [
+                    "Sla Service Time"
+                ],
+                "summary": "Get list of Sla Service Time",
+                "description": "Returns list of sla Service Time",
+                "operationId": "getSlaServiceTime",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sla Service Time"
+                ],
+                "summary": "Store Sla Service Time record",
+                "description": "Store a newly created resource in storage",
+                "operationId": "StoreSlaServiceTime",
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "serviceName",
+                                    "days",
+                                    "from",
+                                    "to"
+                                ],
+                                "properties": {
+                                    "serviceName": {
+                                        "type": "string"
+                                    },
+                                    "days": {
+                                        "type": "boolean"
+                                    },
+                                    "from": {
+                                        "type": "string"
+                                    },
+                                    "to": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/sla-service-time/{id}": {
+            "get": {
+                "tags": [
+                    "Sla Service Time"
+                ],
+                "summary": "Get single record of Sla Service Time",
+                "description": "Display the specified resource",
+                "operationId": "getSingleSlaServiceTime",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla service time record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Sla Service Time"
+                ],
+                "summary": "Update Sla Service Time record",
+                "description": "update a resource in storage",
+                "operationId": "updateSlaServiceTime",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla service time record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass Json request",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "serviceName",
+                                    "days",
+                                    "from",
+                                    "to"
+                                ],
+                                "properties": {
+                                    "serviceName": {
+                                        "type": "string"
+                                    },
+                                    "days": {
+                                        "type": "boolean"
+                                    },
+                                    "from": {
+                                        "type": "string"
+                                    },
+                                    "to": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sla Service Time"
+                ],
+                "summary": "Delete single record of Sla Service tim",
+                "description": "Delete the specified resource",
+                "operationId": "DeleteSingleSlaServiceTime",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of sla infrasturcture record",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "apiKey",
+                "description": "Bearer token for API authentication",
+                "name": "Authorization",
+                "in": "header",
+                "tokenUrl": "/auth/token"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ]
+}

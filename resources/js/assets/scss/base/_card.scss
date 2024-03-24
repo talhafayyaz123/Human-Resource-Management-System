@@ -1,0 +1,132 @@
+.card {
+  border-radius: 6px;
+  border: 1px solid rgba(208, 213, 221, 0.70);
+  background: transparent;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  height: 100%;
+
+
+  .card-body {
+    padding: 25px 60px 25px;
+  }
+
+  .card-footer {
+    background: transparent;
+    padding: 0px 35px 35px;
+    border: none;
+  }
+}
+
+.card-header {
+  background: transparent;
+  padding: 25px 30px 0;
+  border: none;
+
+  h3 {
+    color: #38414A;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  h4 {
+    color: #38414A;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  p {
+    color: #B9BBBD;
+    font-size: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.card.no-header {
+  .card-body {
+    padding: 35px 80px;
+  }
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.tooltip-btn {
+  display: inline-block;
+  cursor: pointer;
+}
+h3.card-title {
+  color: #38414A;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0;
+}
+h4.card-title{
+  color: #38414A;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin: 0;
+}
+// .tooltip {
+//   display: none;
+//   position: absolute;
+//   padding: 8px;
+//   background-color: #333;
+//   color: #fff;
+//   border-radius: 4px;
+//   z-index: 999;
+// }
+
+// .tooltip.active {
+//   display: block;
+// }
+/* Styles for the tooltip */
+.tooltip-box {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.tooltip-custom {
+  position: absolute;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1;
+
+  left: 0;
+  top: 30px;
+  width: 200px;
+  padding: 10px 20px;
+
+  /* Add additional styles for the tooltip-custom here */
+}
+
+/* Styles for the tooltip arrow (optional) */
+.tooltip-custom::before {
+  content: '';
+  position: absolute;
+  border: 6px solid transparent;
+  border-top-color: $primary-color;
+  top: 0px;
+  left: 4px;
+  top: -11px;
+  transform: rotate(180deg);
+  // transform: translateX(-50%);
+}

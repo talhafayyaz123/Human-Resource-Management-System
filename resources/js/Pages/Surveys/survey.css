@@ -1,0 +1,159 @@
+:deep(.custom-action-grid) {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 10px;
+}
+
+.flash-message {
+    position: absolute;
+    right: 2%;
+    top: 3%;
+    z-index: 9999 !important;
+}
+
+.justify-evenly{
+    justify-content: space-evenly;
+}
+
+.question:hover {
+    background: #eee;
+    color: #000;
+    border: 1px solid #aaa;
+}
+
+.question:hover>.cross {
+    display: block;
+}
+
+.chapter:hover>.cross {
+    display: block;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+.chapter li {
+    list-style-type: none;
+    margin: 10px 0 10px 10px;
+    position: relative;
+}
+
+.chapter .question:before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: -20px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    width: 20px;
+    height: 27px;
+}
+
+.chapter .question-title-input:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    width: 20px;
+    height: 40px;
+}
+
+.chapter li:after {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: -20px;
+    border-left: 1px solid #ddd;
+    width: 20px;
+    height: 100%;
+}
+.chapter li:last-child:after {
+    display: none;
+}
+.chapter li span {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+.chapter li span:hover,
+.chapter li span:focus {
+    background: #eee;
+    color: #000;
+}
+.chapter li span:hover + ul li span,
+.chapter li span:focus + ul li span {
+    background: #eee;
+    color: #000;
+}
+.chapter li span:hover + ul li:after,
+.chapter li span:focus + ul li:after,
+.chapter li span:hover + ul li:before,
+.chapter li span:focus + ul li:before {
+    border-color: #aaa;
+}
+
+.main-div {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 1rem;
+}
+
+.mid-card {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+}
+
+.bottom-card {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1rem;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #eeeeee;
+    /* darker white */
+}
+
+.card-title {
+    color: black;
+    background-color: #fafafa;
+}
+
+.question-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.option-card {
+    border: 1px solid #eeeeee;
+}
+
+.cross {
+    position: absolute;
+    right: 10px;
+}
+
+.top-4 {
+    top: 4px;
+}
+
+.conditions {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: 0.2rem;
+}
+
+.conditions-number {
+    grid-template-columns: 1fr 2fr 2fr 2fr !important;
+}
+
+:deep(.ql-container) {
+    min-height: 300px;
+}
